@@ -1,0 +1,26 @@
+# .gitignore
+
+# IntelliJ
+*.iml
+.idea/
+
+# Mac
+.DS_Store
+
+# Private information
+realdata/
+app/private/database/production
+
+
+# NPM
+node_modules
+npm-debug.*
+
+# GitBook
+_book
+
+# Production settings
+settings.production.*
+
+# Kadira ?
+*.cpuprofile

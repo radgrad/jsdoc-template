@@ -298,27 +298,28 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     var itemsNav = '';
 
     items.forEach(function (item) {
-      itemsNav += '<div class="ui vertical accordion">';
       var methods = find({ kind: 'function', memberof: item.longname });
       var members = find({ kind: 'member', memberof: item.longname });
-
+      if (methods.length) {
+        itemsNav += '<div class="ui vertical accordion">';
+      }
       if (!hasOwnProp.call(item, 'longname')) {
         itemsNav += '<div class="title">';
         itemsNav += '<div class="ui list">';
         itemsNav += '<div class="item">';
-        itemsNav += '<span>'
-        itemsNav += '<i class="dropdown icon"></i>';
+        if (methods.length) {
+          itemsNav += '<i class="dropdown icon"></i>';
+        }
         itemsNav += linktoFn('', item.name);
-        itemsNav += '<span>'
       } else
         if (!hasOwnProp.call(itemsSeen, item.longname)) {
           itemsNav += '<div class="title">';
           itemsNav += '<div class="ui list">';
           itemsNav += '<div class="item">';
-          itemsNav += '<span>'
-          itemsNav += '<i class="dropdown icon"></i>';
+          if (methods.length) {
+            itemsNav += '<i class="dropdown icon"></i>';
+          }
           itemsNav += linktoFn(item.longname, item.name.replace(/^module:/, ''));
-          itemsNav += '</span>'
           itemsNav += '</div>';
           itemsNav += '</div>';
           itemsNav += '</div>';
@@ -338,7 +339,9 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
           itemsNav += '</li>';
           itemsSeen[item.longname] = true;
         }
-      itemsNav += '</div>';
+        if (methods.length) {
+          itemsNav += '</div>';
+        }
     });
 
     if (itemsNav !== '') {

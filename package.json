@@ -11,11 +11,11 @@
     "url": "git+https://github.com/radgrad/jsdoc-template.git"
   },
   "keywords": [
-    "JSDoc3",
-    "Template"
+    "jsdoc",
+    "template"
   ],
-  "author": "Cam Moore",
-  "license": "Apache 2.0",
+  "author": "Cam Moore <cmoore@hawaii.edu>",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/radgrad/jsdoc-template/issues"
   },

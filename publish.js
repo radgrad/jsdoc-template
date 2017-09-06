@@ -306,16 +306,19 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         itemsNav += '<div class="title">';
         itemsNav += '<div class="ui list">';
         itemsNav += '<div class="item">';
+        itemsNav += '<span>'
         itemsNav += '<i class="dropdown icon"></i>';
-        itemsNav += '<li>' + linktoFn('', item.name);
-        itemsNav += '</li>';
+        itemsNav += linktoFn('', item.name);
+        itemsNav += '<span>'
       } else
         if (!hasOwnProp.call(itemsSeen, item.longname)) {
           itemsNav += '<div class="title">';
           itemsNav += '<div class="ui list">';
           itemsNav += '<div class="item">';
+          itemsNav += '<span>'
           itemsNav += '<i class="dropdown icon"></i>';
-          itemsNav += '<li>' + linktoFn(item.longname, item.name.replace(/^module:/, ''));
+          itemsNav += linktoFn(item.longname, item.name.replace(/^module:/, ''));
+          itemsNav += '</span>'
           itemsNav += '</div>';
           itemsNav += '</div>';
           itemsNav += '</div>';

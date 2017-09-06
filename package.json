@@ -1,6 +1,6 @@
 {
   "name": "radgrad-jsdoc-template",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "JSDoc 3 template used by RadGrad to document our JavaScript.",
   "main": "publish.js",
   "scripts": {

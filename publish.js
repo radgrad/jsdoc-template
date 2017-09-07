@@ -296,7 +296,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
   if (items && items.length) {
     var itemsNav = '';
-    console.log(find({ kind: 'class', memberof: item.longname }));
+    console.log(find({ kind: 'class', memberof: items[0].longname }));
     items.forEach(function (item) {
       var methods = find({ kind: 'function', memberof: item.longname });
       var members = find({ kind: 'member', memberof: item.longname });

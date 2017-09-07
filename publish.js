@@ -300,9 +300,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     items.forEach(function (item) {
       var methods = find({ kind: 'function', memberof: item.longname });
       var members = find({ kind: 'member', memberof: item.longname });
-      if (methods.length) {
-        itemsNav += '<div class="ui vertical accordion">';
-      }
+      itemsNav += '<div class="ui vertical accordion">';
       if (!hasOwnProp.call(item, 'longname')) {
         itemsNav += '<div class="title">';
         itemsNav += '<div class="ui list">';
@@ -343,9 +341,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
           itemsNav += '</li>';
           itemsSeen[item.longname] = true;
         }
-        if (methods.length) {
-          itemsNav += '</div>';
-        }
+      itemsNav += '</div>';
     });
 
     if (itemsNav !== '') {

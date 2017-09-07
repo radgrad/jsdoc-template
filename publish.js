@@ -296,11 +296,11 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
   if (items && items.length) {
     var itemsNav = '';
-    console.log(find({ kind: 'class', memberof: items[0].longname }));
     items.forEach(function (item) {
       var methods = find({ kind: 'function', memberof: item.longname });
       var members = find({ kind: 'member', memberof: item.longname });
-
+      var classes = find({ kind: 'class', memberof: item.longname });
+      var hasClasses = classes.length > 0;
       itemsNav += '<div class="ui vertical accordion">';
       if (!hasOwnProp.call(item, 'longname')) {
         itemsNav += '<div class="title">';
@@ -326,8 +326,21 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
           itemsNav += '</div>';
           itemsNav += '</div>';
           itemsNav += '</div>';
-          if (methods.length) {
+          if (hasClasses || methods.length) {
             itemsNav += '<div class="content">'
+          }
+          if (hasClasses) {
+            itemsNav += "<ul class='classes'>";
+
+            classes.forEach(function (c) {
+              itemsNav += "<li data-type='class'>";
+              itemsNav += linkto(c.longname, c.name);
+              itemsNav += "</li>";
+            });
+            
+            itemsNav += "</ul>";
+          }
+          if (methods.length) {
             itemsNav += "<ul class='methods'>";
 
             methods.forEach(function (method) {
@@ -337,6 +350,8 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
             });
 
             itemsNav += "</ul>";
+          }
+          if (hasClasses || methods.length) {
             itemsNav += '</div>';
           }
           itemsNav += '</li>';

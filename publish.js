@@ -296,10 +296,11 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
   if (items && items.length) {
     var itemsNav = '';
-    console.log(items[0]);
+    console.log(find({ kind: 'class', memberof: item.longname }));
     items.forEach(function (item) {
       var methods = find({ kind: 'function', memberof: item.longname });
       var members = find({ kind: 'member', memberof: item.longname });
+
       itemsNav += '<div class="ui vertical accordion">';
       if (!hasOwnProp.call(item, 'longname')) {
         itemsNav += '<div class="title">';

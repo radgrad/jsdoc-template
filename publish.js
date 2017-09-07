@@ -337,7 +337,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
               itemsNav += linkto(c.longname, c.name);
               itemsNav += "</li>";
             });
-            
+
             itemsNav += "</ul>";
           }
           if (methods.length) {
@@ -376,6 +376,13 @@ function linktoExternal(longName, name) {
   return linkto(longName, name.replace(/(^"|"$)/g, ''));
 }
 
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+    var x = a[key]; var y = b[key];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
 /**
  * Create the navigation sidebar.
  * @param {object} members The members that will be used to create the sidebar.
@@ -396,7 +403,7 @@ function buildNav(members) {
   var seenTutorials = {};
 
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
-  nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
+  nav += buildMemberNav(sortByKeymembers.classes, 'name'), 'Classes', seen, linkto);
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.events, 'Events', seen, linkto);

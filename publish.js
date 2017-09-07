@@ -306,7 +306,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         itemsNav += '<div class="title">';
         itemsNav += '<div class="ui list">';
         itemsNav += '<div class="item">';
-        if (methods.length) {
+        if (methods.length || hasClasses) {
           itemsNav += '<i class="dropdown icon"></i>';
         } else {
           itemsNav += '<i class="inverted dropdown icon"></i>';
@@ -317,7 +317,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
           itemsNav += '<div class="title">';
           itemsNav += '<div class="ui list">';
           itemsNav += '<div class="item">';
-          if (methods.length) {
+          if (methods.length || hasClasses) {
             itemsNav += '<i class="dropdown icon"></i>';
           } else {
             itemsNav += '<i class="inverted dropdown icon"></i>';

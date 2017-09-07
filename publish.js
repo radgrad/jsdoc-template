@@ -309,6 +309,8 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         itemsNav += '<div class="item">';
         if (methods.length) {
           itemsNav += '<i class="dropdown icon"></i>';
+        } else {
+          itemsNav += '<i class="inverted dropdown icon"></i>';
         }
         itemsNav += linktoFn('', item.name);
       } else
@@ -318,6 +320,8 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
           itemsNav += '<div class="item">';
           if (methods.length) {
             itemsNav += '<i class="dropdown icon"></i>';
+          } else {
+            itemsNav += '<i class="inverted dropdown icon"></i>';
           }
           itemsNav += linktoFn(item.longname, item.name.replace(/^module:/, ''));
           itemsNav += '</div>';

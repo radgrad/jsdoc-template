@@ -403,7 +403,7 @@ function buildNav(members) {
   var seenTutorials = {};
 
   nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
-  nav += buildMemberNav(sortByKeymembers.classes, 'name'), 'Classes', seen, linkto);
+  nav += buildMemberNav(sortByKey(members.classes, 'name'), 'Classes', seen, linkto);
   nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
   nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
   nav += buildMemberNav(members.events, 'Events', seen, linkto);
